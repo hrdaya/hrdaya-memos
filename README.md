@@ -1,6 +1,6 @@
 
 
-```js
+```css
 .datepicker table tr td.old,
 .datepicker table tr td.new {
     color: #999999;
