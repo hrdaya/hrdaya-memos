@@ -1,9 +1,11 @@
+# datepicker用土日祝日用css
 
+## css
 
 ```css
 .datepicker table tr td.old,
 .datepicker table tr td.new {
-    color: #999999;
+    color: #999;
     background-color: #f5f5f5;
 }
 .datepicker table tr td.day:hover,
@@ -35,6 +37,48 @@
 .datepicker table tr td.saturday.active,
 .datepicker table tr td.sunday.active,
 .datepicker table tr td.holiday.active {
-    color: #ffffff;
+    color: #fff;
+}
+```
+
+## scss
+
+```scss
+.datepicker table tr td {
+    &.old,
+    &.new {
+        color: #999;
+        background-color: #f5f5f5;
+    }
+    &.sunday,
+    &.holiday {
+        color: red;
+    }
+    &.saturday {
+        color: blue;
+    }
+    &.day:hover,
+    &.day.focused {
+        background-color: #c0c0c0;
+    }
+
+    &.old,
+    &.new,
+    &.disabled {
+        &.sunday,
+        &.holiday {
+            color: pink;
+        }
+        &.saturday {
+            color: skyblue;
+        }
+    }
+    &.saturday,
+    &.sunday,
+    &.holiday {
+        &.active {
+            color: #fff;
+        }
+    }
 }
 ```
