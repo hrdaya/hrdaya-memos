@@ -12,7 +12,7 @@
 - [取得するカラム](#取得するカラム)
 - [JOIN句](#join句)
 - [WHERE句](#where句)
-- [OR WHERE句](or-where句)
+- [OR WHERE句](#or-where句)
 - [GROUP句](#group句)
 - [HAVING句](#having句)
 - [ORDER句](#order句)
