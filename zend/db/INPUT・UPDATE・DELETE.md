@@ -7,12 +7,12 @@
 
 ## 目次
 
-- [INSERT](#INSERT)
-- [UPDATE](#UPDATE)
-- [DELETE](#DELETE)
-- [WHERE句について](#WHERE句について)
+- [INSERT](#insert)
+- [UPDATE](#update)
+- [DELETE](#delete)
+- [WHERE句について](#where句について)
 - [quoteメソッド、quoteIntoメソッドについて](#quoteメソッド、quoteIntoメソッドについて)
-- [INSERT・UPDATEのパラメータでクォートしたくない値](#INSERT・UPDATEのパラメータでクォートしたくない値)
+- [INSERT・UPDATEのパラメータでクォートしたくない値](#insert・updateのパラメータでクォートしたくない値)
 - [トランザクション](#トランザクション)
 
 ## INSERT

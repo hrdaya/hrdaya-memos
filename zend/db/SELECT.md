@@ -7,23 +7,23 @@
 
 ## 目次
 
-- [Selectオブジェクトの作成](#Selectオブジェクトの作成)
-- [FROM句](#FROM句)
+- [Selectオブジェクトの作成](#selectオブジェクトの作成)
+- [FROM句](#from句)
 - [取得するカラム](#取得するカラム)
-- [JOIN句](#JOIN句)
-- [WHERE句](#WHERE句)
-- [OR WHERE句](OR WHERE句)
-- [GROUP句](#GROUP句)
-- [HAVING句](#HAVING句)
-- [ORDER句](#ORDER句)
-- [LIMIT句](#LIMIT句)
-- [DISTINCT句](#DISTINCT句)
-- [FOR UPDATE句](#FOR UPDATE句)
-- [UNION句](#UNION句)
+- [JOIN句](#join句)
+- [WHERE句](#where句)
+- [OR WHERE句](or where句)
+- [GROUP句](#group句)
+- [HAVING句](#having句)
+- [ORDER句](#order句)
+- [LIMIT句](#limit句)
+- [DISTINCT句](#distinct句)
+- [FOR UPDATE句](#for update句)
+- [UNION句](#union句)
 - [クエリーの実行](#クエリーの実行)
 - [クエリのリセット](#クエリのリセット)
 - [resetで使用する定数](#resetで使用する定数)
-- [作成したSQLの確認](#作成したSQLの確認)
+- [作成したSQLの確認](#作成したsqlの確認)
 - [クォート](#クォート)
 - [プレースホルダを使用したクォート](#プレースホルダを使用したクォート)
 - [テーブル名等のクォート](#テーブル名等のクォート)
@@ -187,7 +187,7 @@ $select->from(
             array()); // empty list of columns
 ```
 
-## JOIN句の種類
+### JOIN句の種類
 
 `table`テーブル名  
 `condition`結合条件  
@@ -200,7 +200,7 @@ $select->from(
 | RIGHT JOIN   | joinRight(table, condition, [columns]) |
 | FULL JOIN    | joinFull(table, condition, [columns])  |
 
-## USINGを使用したJOIN句の種類
+### USINGを使用したJOIN句の種類
 
 `table`テーブル名  
 `join`結合するカラム名  
@@ -462,7 +462,7 @@ $stmt = $select->query();
 $result = $stmt->fetchAll();
 ```
 
-### fetch句の種類
+### fetchの種類
 
 `setFetchMode()`で`Zend_Db::FETCH_ASSOC`か`Zend_Db::FETCH_OBJ`を指定して取得したデータへのアクセスの仕方を指定しておく  
 デフォルトは`Zend_Db::FETCH_ASSOC`  
