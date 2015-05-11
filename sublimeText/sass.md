@@ -9,10 +9,10 @@ http_path = "/"
 css_dir = "css"
 
 # SCSS ファイルの場所
-sass_dir = "_scss"
+sass_dir = "scss"
 
 # 画像ディレクトリ
-images_dir = "/"
+images_dir = "img"
 
 # JavaScript ファイルの場所
 javascripts_dir = "js"
