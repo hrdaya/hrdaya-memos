@@ -2,7 +2,7 @@
 /**
  * HTMLタグの属性値に値をセットする時に使用
  */
-class My_View_Helper_escapeAttr extends Zend_View_Helper_Abstract
+class My_View_Helper_EscapeAttr extends Zend_View_Helper_Abstract
 {
     public function escapeAttr($val)
     {

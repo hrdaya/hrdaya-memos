@@ -2,7 +2,7 @@
 /**
  * 日付を和暦にして返す
  */
-class My_View_Helper_dateWareki extends Zend_View_Helper_Abstract
+class My_View_Helper_DateWareki extends Zend_View_Helper_Abstract
 {
     public function dateWareki($date)
     {

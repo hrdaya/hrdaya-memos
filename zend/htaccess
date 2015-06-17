@@ -1,0 +1,57 @@
+RewriteEngine On
+
+#----------------------------------------------------------
+# production
+#----------------------------------------------------------
+# APPLICATION_ENV
+SetEnvIf Host ^www.example.com$ APPLICATION_ENV=production
+# REWRITE_BASE
+SetEnvIf Host ^www.example.com$ REWRITE_BASE=/path/to/production
+# ROOT_URI
+SetEnvIf Host ^www.example.com$ ROOT_URI=http://www.example.com
+# ROOT_PATH
+SetEnvIf Host ^www.example.com$ ROOT_PATH=/path/to/production/root
+# INCLUDE
+SetEnvIf Host ^www.example.com$ php_value include_path ".:/usr/local/lib/php:/html/_incs"
+# Display Errors
+SetEnvIf Host ^www.example.com$ php_flag display_errors Off
+
+#----------------------------------------------------------
+# staging
+#----------------------------------------------------------
+# APPLICATION_ENV
+SetEnvIf Request_URI ^\/staging\/ APPLICATION_ENV=staging
+# REWRITE_BASE
+SetEnvIf Request_URI ^\/staging\/ REWRITE_BASE=/path/to/staging
+# ROOT_URI
+SetEnvIf Request_URI ^\/staging\/ ROOT_URI=http://staging.example.com/staging
+# ROOT_PATH
+SetEnvIf Request_URI ^\/staging\/ ROOT_PATH=/path/to/staging/root
+# Include
+SetEnvIf Request_URI ^\/staging\/ php_value include_path ".:/usr/local/lib/php:/html/_incs"
+# Display Errors
+SetEnvIf Request_URI ^\/staging\/ php_flag display_errors On
+
+#----------------------------------------------------------
+# development(use to your path)
+#----------------------------------------------------------
+# APPLICATION_ENV
+SetEnvIf Host ^192\.168\.100\.100$ APPLICATION_ENV=development
+# REWRITE_BASE
+SetEnvIf Host ^192\.168\.100\.100$ REWRITE_BASE=/path/to/development
+# ROOT_URI
+SetEnvIf Host ^192\.168\.100\.100$ ROOT_URI=http://development.example.com
+# ROOT_PATH
+SetEnvIf Host ^192\.168\.100\.100$ ROOT_PATH=/path/to/development/root
+# INCLUDE
+SetEnvIf Host ^192\.168\.100\.100$ php_value include_path ".:/usr/local/lib/php:/html/_incs"
+# Display Errors
+SetEnvIf Host ^192\.168\.100\.100$ php_flag display_errors On
+
+
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]

@@ -2,7 +2,7 @@
 /**
  * 配列を文字列で結合して返す
  */
-class My_View_Helper_arr2str extends Zend_View_Helper_Abstract
+class My_View_Helper_Arr2str extends Zend_View_Helper_Abstract
 {
     public function arr2str(array $arr, $escape = true, $joinStr = '<br>')
     {

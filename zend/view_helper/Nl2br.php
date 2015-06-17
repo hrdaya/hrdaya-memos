@@ -2,7 +2,7 @@
 /**
  * 改行コードを<br>に変換するヘルパー
  */
-class My_View_Helper_nl2br extends Zend_View_Helper_Abstract
+class My_View_Helper_Nl2br extends Zend_View_Helper_Abstract
 {
     public function nl2br($val, $escape = true)
     {
