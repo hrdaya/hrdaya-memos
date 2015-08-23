@@ -1,0 +1,100 @@
+
+body,html {
+    font-size: 14px;
+    font-family: 'メイリオ';
+}
+.ctn {
+    width: 960px;
+    padding: 20px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+}
+
+.table-wrap table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    empty-cells: show;
+    width: 100%;
+}
+.table-wrap table th,
+.table-wrap table td {
+    border: 1px solid #ccc;
+}
+.table-wrap th {
+    background: #e9f5ff;
+}
+.table-wrap tbody tr.hover,
+.table-wrap tbody tr.context-hover {
+    border: 2px solid #111;
+}
+.table-wrap tbody tr.hover th,
+.table-wrap tbody tr.hover td,
+.table-wrap tbody tr.context-hover th,
+.table-wrap tbody tr.context-hover td {
+    background: #eee;
+}
+.table-wrap table tbody th.hover,
+.table-wrap table tbody td.hover,
+.table-wrap table tbody th.context-hover,
+.table-wrap table tbody td.context-hover {
+    background: #ccc;
+}
+
+.table-wrap table th.ui-selecting,
+.table-wrap table th.ui-selected,
+.table-wrap table td.ui-selecting,
+.table-wrap table td.ui-selected {
+    background: #fdf5ce;
+    border: 1px solid #fbd850;
+}
+
+.ui-selectable-helper {
+    border: 1px dotted #00f;
+}
+
+#context-menu {
+    display: none;
+    background: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+#context-menu ul {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: 0 0 10px -2px rgba(0,0,0,.15);
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 150px;
+}
+#context-menu li {
+    cursor: pointer;
+    display: block;
+    padding: 10px 20px;
+}
+#context-menu li:hover {
+    background: #06C;
+    color: #fff;
+}
+#context-menu li.separator {
+    border-top: 1px solid #ddd;
+    height: 0;
+    padding: 0;
+}
+
+#context-menu li.disabled {
+    color: #ccc;
+    cursor: default;
+}
+#context-menu li.disabled:hover {
+    background: #fff;
+}
