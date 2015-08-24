@@ -99,9 +99,10 @@ body,html {
     background: #fff;
 }
 #add-row-separator {
-    height: 3px;
     background-color: #f00;
     border: none;
+    display: none;
+    height: 3px;
     position: absolute;
     width: 100%;
 }
