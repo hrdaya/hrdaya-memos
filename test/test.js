@@ -102,10 +102,20 @@ $(function () {
     $('#separate-col').on('click', function () {
     });
     // コンテキストの行の追加イベント
-    $('#add-cell').on('click', function () {
+    $('#add-row').on('click', function () {
     });
     // コンテキストの行の削除イベント
-    $('#del-cell').on('click', function () {
+    $('#del-row').on('click', function () {
+    });
+    // コンテキストの行の追加ホバー時
+    $('#add-row').on('mouseenter', function () {
+        var $tbody = $($('#context-menu').data('elm'));
+        var $row = $tbody.find('tr.context-hover').first();
+        var positionY = $row.offset().top + $row.height();
+        $tbody.parents('section').first().append($('#add-row-separator'));
+        $('#add-row-separator').css({top: positionY}).show();
+    }).on('mouseleave', function () {
+        $('#add-row-separator').hide();
     });
 
     /* 並べ替え --------------------------------------------------- */
