@@ -98,3 +98,10 @@ body,html {
 #context-menu li.disabled:hover {
     background: #fff;
 }
+#add-row-separator {
+    height: 3px;
+    background-color: #f00;
+    border: none;
+    position: absolute;
+    width: 100%;
+}
