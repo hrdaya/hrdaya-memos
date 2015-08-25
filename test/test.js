@@ -1,3 +1,47 @@
+
+(function ($) {
+    'use strict';
+    // th,tdから「rowspan」を取得
+    $.fn.getRowspan = function () {
+        return parseInt(this.first().attr('rowspan')) || 1;
+    };
+    // th,tdから「colspan」を取得
+    $.fn.getColspan = function () {
+        return parseInt(this.first().attr('colspan')) || 1;
+    };
+    // trに表示されているth,tdがあるかどうかの判定
+    $.fn.isEmptyRow = function () {
+        return this.first().children('th:not(:hidden),td:not(:hidden)').length === 0;
+    };
+    // 指定したエレメントが表示された状態で1つ以上存在するかどうかの判定
+    $.fn.isShown = function () {
+        var i = 0;
+        this.each(function () {
+            i = $(this).is(':not(:hidden)') ? ++i : i;
+        });
+        return i > 0;
+    };
+    // 指定のエレメントの所属するテーブルのカラムクラスの取得
+    $.fn.getColClass = function () {
+        var $table = this.first().parents('table').first();
+        var $ths = $table.children('thead').first().find('th');
+        var colClass = [];
+        var colspan = 1;
+        $ths.each(function (i) {
+            if (i === 0) {
+                colspan = parseInt($(this).attr('colspan')) || 1;
+                colClass.push('col1_1');
+                if (colspan !== 1) {
+                    colClass.push('col1_2');
+                }
+            } else {
+                colClass.push('col' + (i + 1));
+            }
+        });
+        return colClass;
+    };
+}(jQuery));
+
 $(function () {
     // セレクト
     var slc = '';
