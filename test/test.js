@@ -1,6 +1,28 @@
 
 (function ($) {
     'use strict';
+    
+    var onHover = function () {
+        $(document).on('mouseenter', '.box', function () {
+            $(this).addClass('hover');
+        }).on('mouseleave', '.box', function () {
+            $(this).removeClass('hover');
+        });
+    };
+
+    $('td').sortable({
+        connectWith: "td",
+        handle: '.box-move',
+        start: function () {
+            $(".table-wrap tbody").selectable('disable');
+            $(document).off('mouseenter', '.box');
+        },
+        stop: function () {
+            $(".table-wrap tbody").selectable('enable');
+            onHover();
+        }
+    });
+    
     // th,tdから「rowspan」を取得
     $.fn.getRowspan = function () {
         return parseInt(this.first().attr('rowspan')) || 1;
