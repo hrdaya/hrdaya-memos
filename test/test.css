@@ -106,3 +106,28 @@ body,html {
     position: absolute;
     width: 100%;
 }
+
+td .box {
+    padding: 10px;
+}
+td .box-move,
+td .box.hover,
+td .ui-sortable-helper {
+    border: 1px solid #0f0;
+    background: #fff;
+    cursor: move;
+}
+td .ui-sortable-placeholder,
+td .ui-sortable-placeholder.hover {
+    background: #009;
+    border: none;
+    height: 2px;
+    margin-bottom: -2px;
+    padding: 0px;
+    top: -1px;
+    visibility: visible !important;
+}
+td .ui-sortable-helper {
+    filter: alpha(opacity=70);
+    opacity: .7;
+}
