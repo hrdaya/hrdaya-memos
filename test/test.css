@@ -2,6 +2,8 @@
 body,html {
     font-size: 14px;
     font-family: 'メイリオ';
+    word-break: break-all;
+    word-wrap: break-word;
 }
 .ctn {
     width: 960px;
