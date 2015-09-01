@@ -13,8 +13,8 @@
     // プラグイン本体
     var Plugin = function ($elm) {
         this.$elm = $elm;
-        this.compositionFlag = false;
-        this.cutPaste = false;
+        this.boolCmp = false;
+        this.oldVal = '';
         this.on();
     };
 
@@ -22,64 +22,56 @@
     Plugin.prototype = {
         // プラグインのイベント捕捉有効化
         on: function () {
-            var _this = this;
+            var self = this;
 
-            // 一旦イベントのoff
-            _this.off();
+            // イベントの重複登録を避けるため一旦off
+            self.off();
 
             // 捕捉するキーイベント
             var keyEvents = [
-                'cut.' + pluginName,
-                'paste.' + pluginName,
-                'keyup.' + pluginName,
+                'focus.' + pluginName,
+                'blur.' + pluginName,
+                'input.' + pluginName,
                 'compositionstart.' + pluginName,
                 'compositionend.' + pluginName
             ];
 
-            // イベント
-            _this.$elm.on(keyEvents.join(' '), function (e) {
-                // jQueryオブジェクトに変換
-                var $elm = $(this);
-
+            // イベントの登録
+            self.$elm.on(keyEvents.join(' '), function (e) {
                 // イベントのタイプごとに処理
                 switch (e.type) {
-                    case 'cut':
-                    case 'paste':
-                        _this.cutPaste = true;
-                        setTimeout(function () {
-                            // enter.imeEnterイベントの発行
-                            _this._trigger($elm);
-                        }, 0);
+                    case 'focus':
+                        document.addEventListener('selectionchange', function () {
+                            if (self.oldVal !== self.$elm.val()) {
+                                self.$elm.trigger('input');
+                            }
+                            self.oldVal = self.$elm.val();
+                        }, false);
                         break;
-                    case 'keyup':
-                        // 複合キーの時は何もしない
-                        // enterキーの時は何もしない(無駄なイベントを発行しない)
-                        if (e.altKey || e.metaKey || e.ctrlKey || e.keyCode === 13) {
-                            return;
+                    case 'blur':
+                        document.removeEventListener('selectionchange', false, false);
+                        break;
+                    case 'input':
+                        // IME入力中でない時にイベントの発行
+                        if (!self.boolCmp) {
+                            self.raiseEvent();
                         }
-                        // IME入力中でない、カット・ペーストの後でない
-                        if (!_this.compositionFlag && !_this.cutPaste) {
-                            // enter.imeEnterイベントの発行
-                            _this._trigger($elm);
-                        }
-                        // カット・ペーストの時の
-                        _this.cutPaste = false;
                         break;
                     case 'compositionstart':
                         // 入力中フラグのセット
-                        _this.compositionFlag = true;
+                        self.boolCmp = true;
                         break;
                     case 'compositionend':
                         // 入力中フラグのリセット
-                        _this.compositionFlag = false;
-                        // IME入力終了後のイベントをフックする為にkeyupイベントの発行
-                        $elm.trigger('keyup');
+                        self.boolCmp = false;
+                        self.raiseEvent();
                         break;
                 }
             });
         },
         // プラグインのイベント捕捉無効化
         off: function () {
+            this.$elm.trigger('blur');
             this.$elm.off('.' + pluginName);
         },
         // プラグインの破棄
@@ -88,22 +80,18 @@
             this.$elm.removeData(pluginName);
         },
         // イベントの発行
-        _trigger: function ($elm) {
-            // enter.imeEnterイベントの発行
-            $elm.trigger($.Event('enter.' + pluginName));
+        raiseEvent: function () {
+            this.$elm.trigger($.Event('enter.' + pluginName));
         }
     };
 
     // プラグインの実行
     $.fn[pluginName] = function (method) {
-        this.each(function (i, elm) {
-            var $elm = $(elm);
-            // テキスト入力エリア以外には適用しない
-            var tag = $elm.prop('tagName').toLowerCase();
-            switch (tag) {
+        this.each(function () {
+            // 文字列入力エリア以外には適用しない
+            switch ($(this).prop('tagName').toLowerCase()) {
                 case 'input':
-                    var type = $elm.prop('type').toLowerCase();
-                    switch (type) {
+                    switch ($(this).prop('type').toLowerCase()) {
                         case 'password':
                         case 'radio':
                         case 'checkbox':
@@ -121,13 +109,8 @@
                 default:
                     return true;
             }
-            // 初期化されたデータがあるか確認
-            var data = $elm.data(pluginName);
-            // オブジェクトが作成されていない場合は新規作成
-            if (!data) {
-                $elm.data(pluginName, new Plugin($elm));
-                data = $elm.data(pluginName);
-            }
+            // 登録されたデータ属性の取得
+            var data = $.data(this, pluginName) || $.data(this, pluginName, new Plugin($(this)));
             // プロトタイプの関数に引数が存在する場合は関数の実行
             switch (method) {
                 case 'on':
