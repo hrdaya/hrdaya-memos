@@ -1,6 +1,7 @@
 body {
 
 }
+
 /* コンテナ
 ============================================================================= */
 .container {
@@ -15,6 +16,17 @@ body {
   box-sizing: border-box;
 }
 
+/* フッターを最下部に持ってくるためのflex-box設定(IEでは未対応)
+============================================================================= */
+.flex-v {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main {
+  flex: 1 1 auto;
+}
+
 /* タイトル
 ============================================================================= */
 .h1 {
@@ -23,9 +35,7 @@ body {
   height: 100px;
   width: 100px;
   background-color: transparent;
-  border: 0;
   color: transparent;
-  font: "0/0" a;
   text-shadow: none;
 */
 }
@@ -54,12 +64,12 @@ body {
 /* サイト内ナビ
 ============================================================================= */
 .nav-other>ul {
+  display: flex;
   position: absolute;
   top: 0;
   right: 0;
 }
 .nav-other>ul>li {
-  display: inline-block;
   padding: 5px 0;
 }
 .nav-other>ul>li+li::before {
@@ -73,12 +83,13 @@ body {
   background: #000;
 }
 /* ホバーした時に表示する背景を指定する */
+/* flexで横並びにする */
 .nav-global>ul {
   background: url(../img/nav-global.png) no-repeat left bottom;
+  display: flex;
 }
-/* インラインブロックで横並びにする */
+/* サブメニュー用にポジションを設定する */
 .nav-global>ul>li {
-  display: inline-block;
   position: relative;
 }
 /* 設定している文字列を非表示にして背景画像を指定する */
@@ -86,7 +97,6 @@ body {
   background: url(../img/nav-global.png) no-repeat;
   color: transparent;
   display: block;
-  font: "0/0" a;
   height: 40px;
 }
 /* 背景を消すことでulに設定した背景を表示する */
@@ -94,7 +104,7 @@ body {
 .nav-global>ul>li>a.active {
   background: transparent !important;
 }
-/* メニューごとの背景を設定 */
+/* メニューごとの初期背景を設定 */
 #nav1 {
   background-position: 0 top;
   width: 200px;
@@ -111,7 +121,7 @@ body {
   background-position: -600px top;
   width: 200px;
 }
-/* サブナビゲーション */
+/* サブメニュー */
 .nav-global li ul {
   background: #333;
   border-radius: 0 0 3px 3px;
@@ -120,14 +130,10 @@ body {
   left: 0;
   z-index: 100;
 }
-/* メニューの最後のサブメニューの位置を調整 */
+/* 親メニューの最後のサブメニューの位置を調整(親メニューよりサブメニューの幅が広い場合) */
 .nav-global li:last-child>ul {
   left: auto;
   right: 0;
-}
-/* サブメニューのリストの上部に線を表示 */
-.nav-global li:hover li+li {
-  border-top: 1px solid rgba(255,255,255,.2);
 }
 /* サブメニューのリストの高さを無くして非表示にする */
 .nav-global li li>a {
@@ -140,22 +146,28 @@ body {
   transition: .2s;
   width: 250px;
 }
-/* サブメニューの展開(リストの高さを指定する事により表示) */
+/* サブメニューのアイテムをホバーしたときの設定 */
+.nav-global li li>a:hover {
+  background: #666;
+  color: #ffc618;
+}
+/* サブメニューの展開(コンテンツの高さを指定する事により表示) */
 .nav-global li:hover li>a {
   height: 40px;
   line-height: 40px;
   overflow: visible;
 }
-/* サブメニューをホバーしたときの設定 */
-.nav-global li li>a:hover {
-  background: #666;
-  color: #ffc618;
+/* サブメニューのリストの上部に線を表示 */
+.nav-global li:hover li+li {
+  border-top: 1px solid rgba(255,255,255,.2);
 }
 
 /* パンくず
 ============================================================================= */
+.breadcrumb>ol {
+  display: flex;
+}
 .breadcrumb>ol>li {
-  display: inline-block;
   padding: 5px 0;
 }
 .breadcrumb>ol>li+li::before {
@@ -166,10 +178,11 @@ body {
 /* フッター
 ============================================================================= */
 .footer {
-
+  background: url();
 }
 .copyright {
-  text-align: center;
+  background: url();
+  color: transparent;
 }
 
 /* メインコンテンツ

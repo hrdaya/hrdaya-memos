@@ -1,52 +1,52 @@
 
-/* 注釈(antはannotationの略)
+/* 注釈(annotationはannotationの略)
 ============================================================================= */
-.ant>ul,
-.ant>ol {
+.annotation>ul,
+.annotation>ol {
   color: #666;
   font-size: 12px;
   list-style: none;
   margin: 5px 0;
 }
-.ant>ul>li,
-.ant>ol>li {
+.annotation>ul>li,
+.annotation>ol>li {
   position: relative;
 }
-.ant>ul>li::before,
-.ant>ol>li::before {
+.annotation>ul>li::before,
+.annotation>ol>li::before {
   position: absolute;
 }
-.ant>ul>li+li,
-.ant>ol>li+li {
+.annotation>ul>li+li,
+.annotation>ol>li+li {
   margin-top: 7px;
 }
-.ant>ul {
+.annotation>ul {
   padding-left: 1.25em;
 }
-.ant>ul>li::before {
+.annotation>ul>li::before {
   content: '※';
   left: -1.25em;
 }
-.ant>ol {
+.annotation>ol {
   counter-reset: count;
   padding-left: 2.5em;
 }
-.ant>ol>li::before {
+.annotation>ol>li::before {
   counter-increment: count;
   content: "※" counter(count);
   left: -2.5em;
 }
-.ant-sup, .ant-sub {
+.sup-annotation, .sub-annotation {
   color: #666;
   font-size: 85%;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
-.ant-sup {
+.sup-annotation {
   top: -0.5em;
 }
-.ant-sub {
+.sub-annotation {
   bottom: -0.25em;
 }
 

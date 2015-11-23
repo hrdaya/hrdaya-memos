@@ -8,6 +8,7 @@
 :root {
   cursor: default;
   font-family: 'Meiryo', 'メイリオ', Meiryo, sans-serif;
+  /*font-family: YuGothic,'Yu Gothic', '游ゴシック体', '游ゴシック', 'Meiryo', 'メイリオ', Meiryo, sans-serif;*/
   font-size: 10px;
   text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
@@ -32,6 +33,7 @@
 /* IE系でviewportがうまく働かないときがあることへの処置 */
 @viewport {
   width: device-width;
+  height: device-height;
 }
 
 /* cssを適用しやすいように値をセット */
@@ -79,7 +81,8 @@ hr {
 }
 
 /* 文字列を選択したときの色 */
-::selection {
+::selection,
+::-moz-selection {
   text-shadow: none;
 }
 
@@ -233,7 +236,7 @@ ul, ol, li {
 ul {
   padding-left: 1em;
   /* liをinline-blockにした時に出来る隙間の対策 */
-  font-size: 0;
+  /*font-size: 0;*/
 }
 
 ol {
@@ -241,7 +244,8 @@ ol {
 }
 
 li {
-  font-size: 1.4rem;
+  /* liをinline-blockにした時に出来る隙間の対策 */
+  /*font-size: 1.4rem;*/
 }
 
 nav ul,
@@ -275,7 +279,6 @@ select,
 textarea {
   color: inherit;
   font: inherit;
-  line-height: inherit;
   margin: 0;
 }
 
@@ -292,7 +295,6 @@ optgroup {
   color: inherit;
   font: inherit;
   font-weight: bold;
-  line-height: inherit;
 }
 
 textarea {
