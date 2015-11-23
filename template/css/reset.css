@@ -1,0 +1,351 @@
+@charset 'utf-8';
+
+/*
+ * リセット用
+ */
+
+/* root(html)要素にベースとなる値をセットする */
+:root {
+  cursor: default;
+  font-family: 'Meiryo', 'メイリオ', Meiryo, sans-serif;
+  font-size: 10px;
+  text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+}
+
+/* すべての要素が基本的に上位要素のスタイルを継承するようにする */
+*,
+::before,
+::after {
+  box-sizing: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+
+/* IE系でviewportがうまく働かないときがあることへの処置 */
+@viewport {
+  width: device-width;
+}
+
+/* cssを適用しやすいように値をセット */
+body {
+  background-color: #fff;
+  color: #333;
+  font-size: 14px;
+  height: 100%;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+details,
+main,
+summary {
+  display: block;
+}
+[hidden],
+template {
+  display: none;
+}
+[disabled] {
+  cursor: default;
+}
+[unselectable] {
+  user-select: none;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  box-sizing: content-box;
+  height: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* フォーカスを受けたときにアウトラインを出さないようにする */
+:focus {
+  outline: none;
+}
+
+/* 文字列を選択したときの色 */
+::selection {
+  text-shadow: none;
+}
+
+
+/* ブロック要素
+============================================================================= */
+p, blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* タイトル要素
+============================================================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* インライン要素
+============================================================================= */
+b,
+strong {
+  font-weight: bold;
+}
+
+s,
+del {
+  text-decoration: line-through;
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+small {
+  font-size: 85%;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+sub,
+sup {
+  font-size: 85%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+
+dfn {
+  font-style: italic;
+}
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor:help;
+}
+
+
+/* リンク
+============================================================================= */
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  background-color: transparent;
+  color: #0275d8;
+  cursor: pointer;
+  outline: 0;
+  text-decoration: none;
+  vertical-align: baseline;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+
+/* 画像関係
+============================================================================= */
+img {
+  border: 0;
+  height: auto;
+  max-width: 100%;
+  vertical-align: baseline;
+}
+figure {
+  margin: 0;
+}
+
+
+/* マルチメディア
+============================================================================= */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+
+
+/* テーブル
+============================================================================= */
+table {
+  empty-cells: show;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+th {
+  font-weight: bold;
+}
+
+caption, th {
+  text-align: left;
+}
+
+
+/* リスト
+============================================================================= */
+ul, ol, li {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  padding-left: 1em;
+  /* liをinline-blockにした時に出来る隙間の対策 */
+  font-size: 0;
+}
+
+ol {
+  padding-left: 1.5em;
+}
+
+li {
+  font-size: 1.4rem;
+}
+
+nav ul,
+nav ol {
+  list-style: none;
+  padding: 0;
+}
+
+
+/* コード(等幅フォントを使用する部分)
+============================================================================= */
+code,
+kbd,
+pre,
+samp {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+  line-height: 1.2;
+  margin: 0;
+}
+pre {
+  overflow: auto;
+  padding: 1em;
+}
+
+
+/* フォーム関連
+============================================================================= */
+button,
+input,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+button {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+optgroup {
+  color: inherit;
+  font: inherit;
+  font-weight: bold;
+  line-height: inherit;
+}
+
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
+
+button,
+html input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  padding: 0;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  height: auto;
+}
+
+input[type='search'] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box;
+}
+
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+input[type='password']::-ms-reveal {
+  display: inline;
+}
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+}

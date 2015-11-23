@@ -1,0 +1,109 @@
+
+/* 注釈(antはannotationの略)
+============================================================================= */
+.ant>ul,
+.ant>ol {
+  color: #666;
+  font-size: 12px;
+  list-style: none;
+  margin: 5px 0;
+}
+.ant>ul>li,
+.ant>ol>li {
+  position: relative;
+}
+.ant>ul>li::before,
+.ant>ol>li::before {
+  position: absolute;
+}
+.ant>ul>li+li,
+.ant>ol>li+li {
+  margin-top: 7px;
+}
+.ant>ul {
+  padding-left: 1.25em;
+}
+.ant>ul>li::before {
+  content: '※';
+  left: -1.25em;
+}
+.ant>ol {
+  counter-reset: count;
+  padding-left: 2.5em;
+}
+.ant>ol>li::before {
+  counter-increment: count;
+  content: "※" counter(count);
+  left: -2.5em;
+}
+.ant-sup, .ant-sub {
+  color: #666;
+  font-size: 85%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.ant-sup {
+  top: -0.5em;
+}
+.ant-sub {
+  bottom: -0.25em;
+}
+
+
+/* モーダル用
+============================================================================= */
+.modal-body {
+  overflow: hidden !important;
+}
+
+
+/* ユーティリティ
+============================================================================= */
+.pull-left {
+  float: left !important;
+}
+.pull-right {
+  float: right !important;
+}
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+.clearfix::after {
+  clear: both;
+}
+
+.show {
+  display: block !important;
+}
+.hidden {
+  display: none !important;
+}
+.disabled {
+  cursor: default;
+}
+
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-hidden {
+  font: "0/0" a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}

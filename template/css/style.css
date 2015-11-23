@@ -1,0 +1,179 @@
+body {
+
+}
+/* コンテナ
+============================================================================= */
+.container {
+  margin: 0 auto;
+  position: relative;
+  width: 800px;
+}
+/* コンテナ配下のすべてをborder-boxにする */
+.container *,
+.container *::before,
+.container *::after {
+  box-sizing: border-box;
+}
+
+/* タイトル
+============================================================================= */
+.h1 {
+/* タイトルを背景画像にするときは下記を適用
+  background: url();
+  height: 100px;
+  width: 100px;
+  background-color: transparent;
+  border: 0;
+  color: transparent;
+  font: "0/0" a;
+  text-shadow: none;
+*/
+}
+.h2 {
+
+}
+.h3 {
+
+}
+.h4 {
+
+}
+.h5 {
+
+}
+.h6 {
+
+}
+
+/* ヘッダ
+============================================================================= */
+.header {
+
+}
+
+/* サイト内ナビ
+============================================================================= */
+.nav-other>ul {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.nav-other>ul>li {
+  display: inline-block;
+  padding: 5px 0;
+}
+.nav-other>ul>li+li::before {
+  content: '｜';
+}
+
+/* グローバルナビ
+============================================================================= */
+/* メインナビゲーション */
+.nav-global {
+  background: #000;
+}
+/* ホバーした時に表示する背景を指定する */
+.nav-global>ul {
+  background: url(../img/nav-global.png) no-repeat left bottom;
+}
+/* インラインブロックで横並びにする */
+.nav-global>ul>li {
+  display: inline-block;
+  position: relative;
+}
+/* 設定している文字列を非表示にして背景画像を指定する */
+.nav-global>ul>li>a {
+  background: url(../img/nav-global.png) no-repeat;
+  color: transparent;
+  display: block;
+  font: "0/0" a;
+  height: 40px;
+}
+/* 背景を消すことでulに設定した背景を表示する */
+.nav-global>ul>li>a:hover,
+.nav-global>ul>li>a.active {
+  background: transparent !important;
+}
+/* メニューごとの背景を設定 */
+#nav1 {
+  background-position: 0 top;
+  width: 200px;
+}
+#nav2 {
+  background-position: -200px top;
+  width: 200px;
+}
+#nav3 {
+  background-position: -400px top;
+  width: 200px;
+}
+#nav4 {
+  background-position: -600px top;
+  width: 200px;
+}
+/* サブナビゲーション */
+.nav-global li ul {
+  background: #333;
+  border-radius: 0 0 3px 3px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 100;
+}
+/* メニューの最後のサブメニューの位置を調整 */
+.nav-global li:last-child>ul {
+  left: auto;
+  right: 0;
+}
+/* サブメニューのリストの上部に線を表示 */
+.nav-global li:hover li+li {
+  border-top: 1px solid rgba(255,255,255,.2);
+}
+/* サブメニューのリストの高さを無くして非表示にする */
+.nav-global li li>a {
+  color: #fff;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding: 0 10px;
+  text-decoration: none;
+  transition: .2s;
+  width: 250px;
+}
+/* サブメニューの展開(リストの高さを指定する事により表示) */
+.nav-global li:hover li>a {
+  height: 40px;
+  line-height: 40px;
+  overflow: visible;
+}
+/* サブメニューをホバーしたときの設定 */
+.nav-global li li>a:hover {
+  background: #666;
+  color: #ffc618;
+}
+
+/* パンくず
+============================================================================= */
+.breadcrumb>ol>li {
+  display: inline-block;
+  padding: 5px 0;
+}
+.breadcrumb>ol>li+li::before {
+  content: '＞';
+  padding: 0 5px;
+}
+
+/* フッター
+============================================================================= */
+.footer {
+
+}
+.copyright {
+  text-align: center;
+}
+
+/* メインコンテンツ
+============================================================================= */
+.main {
+  padding: 20px;
+}
