@@ -1,5 +1,7 @@
+
 # iptables
 
+```
 ################################################################################
 # filterテーブル設定
 ################################################################################
@@ -194,10 +196,11 @@
 COMMIT
 
 # [filterテーブル設定ここまで] #################################################
-
+```
 
 # iptables.conf
 
+```
 :msg,contains,"ip_spoofing"     /var/log/iptables/drop.log
 :msg,contains,"smurf"           /var/log/iptables/drop.log
 :msg,contains,"spi_filter"      /var/log/iptables/drop.log
@@ -209,3 +212,4 @@ COMMIT
 :msg,contains,"output_drop"     /var/log/iptables/drop.log
 :msg,contains,"forward_drop"    /var/log/iptables/drop.log
 :msg,contains,"yum"             /var/log/iptables/yum.log
+```
