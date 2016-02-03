@@ -1,0 +1,174 @@
+@charset "utf-8";
+
+body {
+	background: #fff;
+	color: #333;
+}
+
+/* コンテナクラス(最初に出現するコンテナの左上をheatmapの基準とする) */
+.container {
+	border-right: 1px solid #999;
+	border-left: 1px solid #999;
+	margin: 0 auto;
+	position: relative;
+	width: 960px;
+}
+
+/* サイトヘッダー
+==============================================================================*/
+/* サイトのヘッダーにはpaddingを入れない[heatmap対策] */
+.site-header {
+	background: linear-gradient(180deg, #fcfcfc, #ccc);
+}
+
+.site-title {
+	font-size: 24px;
+}
+
+.site-lead {
+	padding: 1em;
+}
+
+/* サイトナビゲーション
+==============================================================================*/
+.site-nav {
+	background: #000;
+	border-bottom: 1px solid #666;
+	border-top: 1px solid #666;
+}
+
+.site-nav > ul {
+	display: table;
+	margin: 0;
+	padding: 0;
+}
+
+.site-nav > ul > li {
+	display: table-cell;
+	padding: .5em 1em;
+	vertical-align: middle;
+}
+
+.site-nav > ul > li:not(:first-child) {
+	border-left: 1px solid #666;
+}
+
+/* パンくず
+==============================================================================*/
+.breadcrumbs {
+	padding: 1em 0;
+}
+
+.breadcrumbs > ol {
+	display: block;
+}
+
+.breadcrumbs > ol > li {
+	display: inline-block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.breadcrumbs > ol > li + li::before {
+	content: '＞';
+	display: inline-block;
+	margin: 0 .4em;
+}
+
+/* サイトフッター
+==============================================================================*/
+.site-footer {
+	background: linear-gradient(0deg, #fcfcfc, #ccc);
+	text-align: center;
+}
+
+.copyright {
+	font-size: 100%;
+	display: inline-block;
+	padding: .5em;
+}
+
+/* ページトップ
+==============================================================================*/
+.page-top {
+	background: rgba(100,100,100,.5);
+	border-radius: 6px;
+	bottom: 10px;
+	position: fixed;
+	right: 10px;
+}
+
+.page-top:hover {
+	background: rgba(0,0,0,.5);
+}
+
+.page-top a {
+	color: #fff;
+	display: inline-block;
+	padding: 1.5em 1em;
+}
+
+/* サイトコンテンツ
+==============================================================================*/
+.site-contents {
+	/*border: 1px solid #999;*/
+	padding: 1em;
+	margin-bottom: 1em;
+}
+
+/* ページヘッダー
+==============================================================================*/
+.page-title {
+	font-size: 20px;
+}
+
+.page-lead {
+	border: 1px solid #aaa;
+	border-radius: 6px;
+	padding: 1em;
+}
+
+/* ページナビゲーション
+==============================================================================*/
+.page-nav {
+	margin: 1em 0;
+}
+
+.page-nav > ul > li {
+	display: inline-block;
+}
+
+.page-nav > ul > li + li {
+	margin-left: 1em;
+}
+
+.page-nav > ul > li::before {
+	background: #66f;
+	border-radius: 50%;
+	content: '';
+	display: inline-block;
+	height: 6px;
+	margin-right: .3em;
+	vertical-align: middle;
+	width: 6px;
+}
+
+/* セクション
+==============================================================================*/
+.sect {
+	border: 1px solid #aaa;
+}
+
+.sect + .sect {
+	margin-top: 1em;
+}
+
+.sect-title {
+	background: #99f;
+	font-size: 16px;
+}
+
+.sect-body {
+	padding: 1em;
+}
