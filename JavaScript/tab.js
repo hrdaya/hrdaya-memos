@@ -26,23 +26,34 @@
  * </div>
  *
  * cssの最低限の設定
- /* アクティブなタブメニューのaタグの設定 *
- .tab-menu a.active {
+/* 現在有効なタブメニューのaタグの設定 *
+.tab-menu a.active {
 
- }
- /* 無効に設定されているタブメニューのaタグの設定 *
- .tab-menu a.disabled,
- .tab-menu a:disabled {
-   cursor: default;
- }
- /* コンテンツは通常非表示 *
- .tab-content {
-   display: none;
- }
- /* showクラスが付与された時に表示 *
- .tab-content.show {
-   display: block;
- }
+}
+/* 無効に設定されているタブメニューのaタグの設定 *
+.tab-menu a.disabled,
+.tab-menu a:disabled {
+  cursor: default;
+}
+/* フェードイン用アニメーションの設定 *
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* コンテンツは通常非表示 *
+.tab-content {
+  display: none;
+}
+/* showクラスが付与された時に表示 *
+.tab-content.show {
+  display: block;
+  /* フェードインのアニメーションの設定 *
+  animation: show .3s ease;
+}
  *
  * リンクの指定方法
  * http://url/index.html#tab?scroll
@@ -66,7 +77,10 @@ $(function (undefined) {
         disabled: 'disabled'
     };
 
-    // タブをクリックした時の処理
+    /**
+     * タブメニューのaタグをクリックした時の処理
+     * @return {void}
+     */
     $('.' + names.menu).on('click', 'a', function (e) {
         // デフォルトのイベントをキャンセル
         e.preventDefault();
@@ -76,18 +90,25 @@ $(function (undefined) {
         }
         // 進む戻るを有効にする為ハッシュ値を書き換える
         location.hash = $(this).attr('href').substring(1);
+        // クエリ情報を空にする
+        location.search = '';
         // ハッシュが変わったことを通知する
         $(window).trigger('hashchange');
     });
 
-    // ハッシュが変わった時の処理
+    /**
+     * ロケーションのハッシュが変わった時の処理
+     * @return {void}
+     */
     $(window).on('hashchange', function() {
         showHash();
     });
 
-    /*
+    /**
      * タブコンテンツを表示する処理
+     * メニューのaタグにactive、tab-contentにshowクラスを付与する
      * @param {Object} $elm メニューの表示するaタグ(jQuery Object)
+     * @return {void}
      */
     var showContent = function ($elm) {
         var $tab = $elm.parents('.' + names.tabs).first();
@@ -105,22 +126,14 @@ $(function (undefined) {
         $menu.find('.' + names.active).removeClass(names.active);
         $tab.children('.' + names.show).not('[id="' + href + '"].' + names.content).removeClass(names.show);
 
-        // 表示処理
+        // 表示クラスの付与
         $elm.addClass(names.active);
         $tab.find('[id="' + href + '"].' + names.content).addClass(names.show);
     };
 
-    /*
-     * エレメントの位置までスクロールする処理
-     * @param {Object} $elm トップまで移動するコンテンツ(jQuery Object)
-     */
-    var scrollContent = function ($elm) {
-        var position = $elm.offset().top;
-        $('body,html').animate({scrollTop: position}, 'fast', 'swing');
-    };
-
-    /*
-     * ハッシュで指定されたコンテンツの表示
+    /**
+     * ロケーションのハッシュで指定されたコンテンツの表示
+     * @return {void}
      */
     var showHash = function () {
         var locationHash = location.hash;
@@ -128,41 +141,47 @@ $(function (undefined) {
         if (!locationHash) {
             return;
         }
-        // ハッシュの値とスクロールのパラメータを取得する
-        var hashs = locationHash.substring(1).split('?');
-        var hash = hashs[0] || '';
-        var params = hashs[1] ? hashs[1].split('&') : [];
-        var scroll = ($.inArray('scroll', params) >= 0 || $.inArray('scroll=true', params) >= 0);
+        // ハッシュの値を取得する
+        locationHash = locationHash.substring(1).split('?');
+        var hash = locationHash[0] || '';
+        // クエリ情報を取得する
+        var search = location.search.substring(1).split('&');
+        if (search[0] === '') {
+            // クエリ情報がハッシュの後ろにある場合
+            search = locationHash.length > 1 ? locationHash[1].split('&') : [];
+        }
+        // スクロールしてコンテンツをトップに表示するパラメータの確認
+        var scroll = ($.inArray('scroll', search) >= 0 || $.inArray('scroll=true', search) >= 0);
 
         // ハッシュが空文字の場合は何もしない
         if (hash === '') {
             return;
         }
 
-        // ハッシュを指定したエレメントが存在するか確認する
+        // ハッシュをidとして持つエレメントが存在するか確認する
         var $hashErement = $('body').find('[id="' + hash + '"]');
 
-        // ハッシュを指定したエレメントが無い場合は何もしない
+        // エレメントが存在しない場合は何もしない
         if (!$hashErement) {
             return;
         }
 
-        // ハッシュがタブかタブの中のエレメントかを確認する
+        // ハッシュをidとして持つエレメントがタブコンテンツかタブの中のエレメントかを確認する
         var $tabContent;
         if ($hashErement.hasClass(names.content)) {
-            // タブのクラスを持っている場合
+            // タブコンテンツのクラスを持っている場合
             $tabContent = $hashErement;
         } else {
-            // タブのクラスを持っていない場合は祖先のタブ
+            // タブコンテンツのクラスを持っていない場合は祖先のタブ
             $tabContent = $hashErement.parents('.' + names.content).first();
         }
 
-        // タブコンテンツが無効の場合やタブのコンテンツで無い場合は何もしない
+        // タブコンテンツが無効の場合やタブコンテンツが存在しない場合は何もしない
         if ($tabContent.hasClass(names.disabled) || !$tabContent) {
             return;
         }
 
-        // 自身と祖先要素を表示していく
+        // 遡ってタブコンテンツを表示していく
         var $a;
         while ($tabContent.length > 0) {
             $a = $tabContent.parents('.' + names.tabs).first()
@@ -177,12 +196,15 @@ $(function (undefined) {
 
         // スクロール処理
         if (scroll) {
-            scrollContent($hashErement);
+            $('body,html').animate({scrollTop: $hashErement.offset().top}, 'fast', 'swing');
         }
     };
 
-    // 初期に表示するタブの設定
-    // 表示優先順位3,4の設定を行う
+    /**
+     * 初期に表示するタブの設定
+     * 表示優先順位3,4の設定を行う
+     * @return {void}
+     */
     $('.' + names.menu).each(function () {
         // メニュー内でactiveクラスを付与されたものを探す
         var $active = $(this).find('.' + names.active);
@@ -199,6 +221,9 @@ $(function (undefined) {
         }
     });
 
-    // 表示順位1,2の設定を行う
+    /**
+     * 初期に表示するタブの設定
+     * 表示順位1,2の設定を行う
+     */
     showHash();
 });
