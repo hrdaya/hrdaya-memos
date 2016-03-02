@@ -18,6 +18,6 @@ class My_View_Helper_Arr2str extends Zend_View_Helper_Abstract
             }
         }
         // 配列を結合文字列でつなげる
-        return implode($joiStr, $_arr);
+        return implode($joinStr, $_arr);
     }
 }
