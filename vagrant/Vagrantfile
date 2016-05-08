@@ -1,0 +1,51 @@
+
+# 各種変数
+boxName    = "Box名 (vender/boxname) metadata.jsonと合わせておく"
+boxUrl     = "./setup/metadata.json"
+hostname   = "hostname"
+ipAddress  = "192.168.33.10"
+sshPort    = 2210
+proxyHttp  = "http://proxy.mycompany.co.jp:8080/"
+proxyHttps = "http://proxy.mycompany.co.jp:8080/"
+syncLocal  = "./www"
+syncServer = "/var/www"
+
+# Vagrantの設定
+Vagrant.configure(2) do |config|
+
+  config.vm.box              = boxName
+  config.vm.box_url          = boxUrl
+  config.vm.box_check_update = true
+
+  # host名の設定
+  config.vm.hostname = hostname
+
+  # ipaddressの設定
+  config.vm.network :private_network, ip: ipAddress
+
+  # sshのポートの設定
+  config.vm.network :forwarded_port, guest: 22, host: sshPort, id: "ssh", auto_correct: true
+
+  # フォルダ同期の設定
+  config.vm.synced_folder syncLocal, syncServer
+
+  # デフォルトでインストールするプラグイン
+  config.plugin.add_dependency "vagrant-vbguest"
+  config.plugin.add_dependency "vagrant-proxyconf"
+
+  # proxyの設定
+  config.proxy.http     = proxyHttp
+  config.proxy.https    = proxyHttps
+  config.proxy.no_proxy = "localhost,127.0.0.1"
+
+  # Apacheやphpの設定ファイルを転送(Vagrantユーザのホームディレクトリに配置される)
+  config.vm.provision "file", source: "./setup/files/host",      destination: "host"
+  config.vm.provision "file", source: "./setup/files/http.conf", destination: "httpd.conf"
+  config.vm.provision "file", source: "./setup/files/php.ini",   destination: "php.ini"
+
+  # 転送したファイルを本来の位置に移動
+  config.vm.provision "shell", path: "./setup/scripts/move_files.sh"
+
+  # Sync Folderが遅れてマウントされるためにhttpdが自動起動しない事への対策
+  config.vm.provision "shell", path: "./setup/scripts/http_restart.sh", run: "always"
+end
