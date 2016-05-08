@@ -85,6 +85,7 @@ init       : 初期化する
 get        : 取得する
 set        : セットする
 clone      : 複製する
+duplicate  : 複製する
 replace    : 置き換える
 remove     : 取り除く
 parse      : 解析する(parse●●: ●●として解釈するもしくは変換する)
@@ -102,19 +103,21 @@ not        : でない
 has        : 持っている
 only       : のみ
 in         : 中に含む
+exists     : 存在する
 
 equal      : 等しい
-unequal    : 等しくない
 same       : 同じ
-different  : 異なる
 after      : 後
 before     : 前
 empty      : 空
+valid      : 有効
 
 hidden     : 非表示である
 disabled   : 無効である
+enabled    : 有効である
 actived    : 有効である
 selected   : 選択している
+checked    : チェックされている
 opened     : 開いている
 readable   : 読み込み可能である
 
