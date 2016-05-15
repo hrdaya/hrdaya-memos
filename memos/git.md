@@ -15,6 +15,7 @@ SourceTreeをインストールすればSourceTree内臓のGitを使用できる
 # Sourcetree
 
 - [SourceTree](https://ja.atlassian.com/software/sourcetree)
+- [Windows の各種 Git 環境で diff / merge に WinMerge を使うための設定](http://qiita.com/amano41/items/7c4be8d44cbff6417f7e)
 - [SourceTreeの外部Diffでブランチ間のディレクトリ比較できると泣けるほど便利](http://qiita.com/ma-tu/items/b3ee498653774e3e3e75)
 
 # Subversionからの移行
@@ -54,22 +55,28 @@ SourceTreeをインストールすればSourceTree内臓のGitを使用できる
 # いろいろリンク
 
 - [Gitでやらかさないための事前予防策](http://qiita.com/muran001/items/f13742b51da3a22117ee)
-- [Gitのコミットメッセージの書き方](http://qiita.com/itosho/items/9565c6ad2ffc24c09364)
-- [変更を一時的に退避！キメろgit stash](http://qiita.com/fukajun/items/41288806e4733cb9c342)
-- [Bitbucket や GitHub で自動デプロイするためのサンプル PHP スクリプトを拾って改造してみた](http://ja.katzueno.com/2015/01/3390/)
 - [Gitのこれやめて！リスト](http://qiita.com/doilux/items/b5a9abd95ac91e848a5f)
+- [Gitのコミットメッセージの書き方](http://qiita.com/itosho/items/9565c6ad2ffc24c09364)
+- [issue を雑に作らないために](http://qiita.com/mironal/items/735c2c3bb658eba2f7d2)
+- [windows版 SourceTreeのコミットログに自動でブランチ名とかチケット番号を入れる方法](http://qiita.com/kyanro@github/items/d7a0f01236f90339516a)
+- [変更を一時的に退避！キメろgit stash](http://qiita.com/fukajun/items/41288806e4733cb9c342)
+- [GitHub Organization: Issues+Pull Requestでチケット駆動開発する手順](http://qiita.com/suin/items/8f1d42976dc350b953ea)
+
+# gitフック
+
+- [Bitbucket や GitHub で自動デプロイするためのサンプル PHP スクリプトを拾って改造してみた](http://ja.katzueno.com/2015/01/3390/)
 - [gitのpre-commit hookを使って、綺麗なPHPファイルしかコミットできないようにする](http://blog.manaten.net/entry/645)
 - [かゆいところに手が届くgitフックスクリプト(クライアントサイド編)](http://www.unitrust.co.jp/%E3%81%8B%E3%82%86%E3%81%84%E3%81%A8%E3%81%93%E3%82%8D%E3%81%AB%E6%89%8B%E3%81%8C%E5%B1%8A%E3%81%8Fgit%E3%83%95%E3%83%83%E3%82%AF%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%82%AF%E3%83%A9/)
 - [GitHubのwebhookを受け取って、自動でgit pullするスクリプト](http://qiita.com/oyas/items/1cbdc3e0ac35d4316885)
-- [issue を雑に作らないために](http://qiita.com/mironal/items/735c2c3bb658eba2f7d2)
-- [windows版 SourceTreeのコミットログに自動でブランチ名とかチケット番号を入れる方法](http://qiita.com/kyanro@github/items/d7a0f01236f90339516a)
-- [GitHub Organization: Issues+Pull Requestでチケット駆動開発する手順](http://qiita.com/suin/items/8f1d42976dc350b953ea)
-- [CentOSに最新版のGitをインストール・アップデートする方法](http://www.task-notes.com/entry/20150622/1434942000)
 
 # その他
 
+- [CentOSに最新版のGitをインストール・アップデートする方法](http://www.task-notes.com/entry/20150622/1434942000)
+- [RHEL6互換OS用 wingリポジトリ を公開](http://wingse.blog57.fc2.com/blog-entry-281.html)
 - [あなたのサーバは本当に安全ですか？今もっともイケてる脆弱性検知ツールVulsを使ってみた](http://qiita.com/sadayuki-matsuno/items/0bb8bb1689425bb9a21c)
+
+## ツール
+
 - [SlackクローンのMattermostを使ってみる - 導入、初期設定編-](http://qiita.com/terukizm/items/4a4016d8ec5a21856e4f)
 - [Knowledge](https://support-project.org/knowledge_info/index)
-- [RHEL6互換OS用 wingリポジトリ を公開](http://wingse.blog57.fc2.com/blog-entry-281.html)
 - [脱ファイルサーバ！！個人でも会社でも使えるOSSのドキュメント管理システム！その名も「Alfresco」！](http://qiita.com/sadayuki-matsuno/items/f57b5f01789080cfc1a0)
