@@ -13,9 +13,9 @@
 - [PuTTYjp](http://hp.vector.co.jp/authors/VA024651/PuTTYkj.html)
 
 # DB接続
+- [A5:SQL Mk-2](http://a5m2.mmatsubara.com/)
 - [MySQL Workbench](https://www-jp.mysql.com/products/workbench/)
 - [PostgreSQL Studio](http://www.postgresqlstudio.org/)
-- [A5:SQL Mk-2](http://a5m2.mmatsubara.com/)
 
 # ツール
 - [Hosts File Manager](http://softwarefactory.jp/ja/products/hostsfilemanager/)
