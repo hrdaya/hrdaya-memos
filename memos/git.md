@@ -74,9 +74,38 @@ SourceTreeをインストールすればSourceTree内臓のGitを使用できる
 - [CentOSに最新版のGitをインストール・アップデートする方法](http://www.task-notes.com/entry/20150622/1434942000)
 - [RHEL6互換OS用 wingリポジトリ を公開](http://wingse.blog57.fc2.com/blog-entry-281.html)
 - [あなたのサーバは本当に安全ですか？今もっともイケてる脆弱性検知ツールVulsを使ってみた](http://qiita.com/sadayuki-matsuno/items/0bb8bb1689425bb9a21c)
+- [[改訂版]vulsを使って脆弱性の自動スキャンを実現する](http://qiita.com/Ets/items/4ea663ed2b272d6ab93a)
 
 ## ツール
 
 - [SlackクローンのMattermostを使ってみる - 導入、初期設定編-](http://qiita.com/terukizm/items/4a4016d8ec5a21856e4f)
 - [Knowledge](https://support-project.org/knowledge_info/index)
 - [脱ファイルサーバ！！個人でも会社でも使えるOSSのドキュメント管理システム！その名も「Alfresco」！](http://qiita.com/sadayuki-matsuno/items/f57b5f01789080cfc1a0)
+
+## 必読
+
+- [初心者を戒めるPHP](http://qiita.com/tadsan/items/fb496e450fc27c8c4494)
+- [モダンPHPアンチパターン](http://qiita.com/tadsan/items/157969b338fd8b782b21)
+- [Singletonパターンはどのようなときに使うのか？](http://qiita.com/ndxbn/items/c7a37ea950876176bb81)
+- [【PHPで学ぶデザインパターン入門】シリーズ](http://liginc.co.jp/library/155137)
+- [【アシアル塾】PHPオブジェクト指向再入門・第四回デザインパターンに学ぶクラス設計](http://www.slideshare.net/AsialCorp/php-38626338)
+- [やはりあなた方のDependency Injectionはまちがっている。](http://blog.a-way-out.net/blog/2015/08/31/your-dependency-injection-is-wrong-as-I-expected/)
+- [ファットコントローラはFacadeパターンで撲滅しよう](http://hamuhamu.hatenablog.jp/entry/2015/08/16/222835)
+- [新人プログラマに知っておいてもらいたい人類がオブジェクト指向を手に入れるまでの軌跡](http://qiita.com/hirokidaichi/items/591ad96ab12938878fe1)
+- [オブジェクト指向と10年戦ってわかったこと](http://qiita.com/tutinoco/items/6952b01e5fc38914ec4e)
+- [ロシアの天才ハッカーによる【新人エンジニアサバイバルガイド】](http://qiita.com/jacksuzuki/items/b2fa6b44962e73a53d08)
+- [何も知らない人を育てるために（新人教育情報キュレーション）](http://qiita.com/itagakishintaro/items/ca4b60e5fb652160685f)
+- [テストがうまくいかないプロジェクトに捧ぐ、正しいテストの考え方](http://qiita.com/geshi/items/74ed21615e1ba2ad539d)
+- [旧石器時代のJavaScriptを書いてる各位に告ぐ、現代的なJavaScript超入門 Section1 ～すぐにでも現代っぽく出来るワンポイントまとめ～](http://qiita.com/gaogao_9/items/ec2b867d6941173fd0b1)
+- [翻訳: WebAPI 設計のベストプラクティス](http://qiita.com/mserizawa/items/b833e407d89abd21ee72)
+- [HTTPステータスコードを適切に選ぶためのフローチャート : 難しく考えるのをやめよう](http://postd.cc/choosing-an-http-status-code/)
+
+## PSR
+
+- [PHP-FIG](http://www.php-fig.org/)
+
+- [PSR-0(非推奨): オートローディング規約](http://www.infiniteloop.co.jp/docs/psr/psr-0.html)
+- [PSR-1: 基本コーディング規約](http://www.infiniteloop.co.jp/docs/psr/psr-1-basic-coding-standard.html)
+- [PSR-2: コーディング・スタイル・ガイド](http://www.infiniteloop.co.jp/docs/psr/psr-2-coding-style-guide.html)
+- [PSR-4: autoloader](http://qiita.com/inouet/items/0208237629496070bbd4)
+
