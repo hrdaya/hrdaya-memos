@@ -39,6 +39,12 @@ vagrant reload
 vagrant reload --provision
 ```
 
+### provisionを実行する
+仮想マシンのprovisionを実行する
+```
+vagrant provision
+```
+
 ### 停止
 VirtualBoxの電源オフ状態にする
 ```
