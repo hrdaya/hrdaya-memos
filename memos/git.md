@@ -96,6 +96,7 @@ SourceTreeをインストールすればSourceTree内臓のGitを使用できる
 - [ロシアの天才ハッカーによる【新人エンジニアサバイバルガイド】](http://qiita.com/jacksuzuki/items/b2fa6b44962e73a53d08)
 - [何も知らない人を育てるために（新人教育情報キュレーション）](http://qiita.com/itagakishintaro/items/ca4b60e5fb652160685f)
 - [テストがうまくいかないプロジェクトに捧ぐ、正しいテストの考え方](http://qiita.com/geshi/items/74ed21615e1ba2ad539d)
+- [あきらめるにはまだ早い！ソースコードの品質向上に効果的なアプローチ](http://qiita.com/hirokidaichi/items/5a5cb63ef5499143bc40)
 - [旧石器時代のJavaScriptを書いてる各位に告ぐ、現代的なJavaScript超入門 Section1 ～すぐにでも現代っぽく出来るワンポイントまとめ～](http://qiita.com/gaogao_9/items/ec2b867d6941173fd0b1)
 - [翻訳: WebAPI 設計のベストプラクティス](http://qiita.com/mserizawa/items/b833e407d89abd21ee72)
 - [HTTPステータスコードを適切に選ぶためのフローチャート : 難しく考えるのをやめよう](http://postd.cc/choosing-an-http-status-code/)
